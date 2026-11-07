@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#090b12">
+
+    <meta name="description"
+          content="Said Hassan Ameeny Poor - Personal Portfolio">
+
+    <title>
+        {% block title %}
+        Said Hassan Ameeny Poor
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/site.css' %}">
+
+</head>
+
+<body>
+
+    <div class="ambient ambient-one"></div>
+
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar wrap">
+
+        <a class="brand" href="/">
+            SA<span>.</span>
+        </a>
+
+        <nav>
+
+            <a href="/#articles">Articles</a>
+
+            <a href="/#websites">Websites</a>
+
+            <a href="/#videos">Videos</a>
+
+            <a href="/#telegram">Telegram</a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+    <footer class="footer wrap">
+
+        <span>
+            © {% now "Y" %} Said Hassan Ameeny Poor
+        </span>
+
+        <span>
+            Built with purpose.
+        </span>
+
+    </footer>
+
+</body>
+
+</html>
