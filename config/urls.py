@@ -17,7 +17,17 @@ urlpatterns = [
         name="health"
     ),
 
-    # Google authentication
+    path(
+        "robots.txt",
+        views.robots_txt,
+        name="robots"
+    ),
+
+    path(
+        "sitemap.xml",
+        views.sitemap_xml,
+        name="sitemap"
+    ),
 
     path(
         "auth/google/",
@@ -36,8 +46,6 @@ urlpatterns = [
         views.admin_logout,
         name="admin_logout"
     ),
-
-    # Admin panel
 
     path(
         "admin/",
