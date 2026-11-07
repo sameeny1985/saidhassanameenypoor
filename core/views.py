@@ -390,3 +390,49 @@ def item_delete(request, pk):
         }
 
     )
+
+from django.http import HttpResponse
+from django.conf import settings
+from django.utils import timezone
+
+
+def sitemap_xml(request):
+
+    site_url = settings.SITE_URL.rstrip("/")
+
+    lastmod = timezone.localdate().isoformat()
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>{site_url}/</loc>
+        <lastmod>{lastmod}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+</urlset>
+"""
+
+    return HttpResponse(
+        xml,
+        content_type="application/xml"
+    )
+
+
+def robots_txt(request):
+
+    site_url = settings.SITE_URL.rstrip("/")
+
+    content = f"""User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /auth/
+
+Sitemap: {site_url}/sitemap.xml
+"""
+
+    return HttpResponse(
+        content,
+        content_type="text/plain"
+    )
