@@ -1,67 +1,77 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Said Hassan Ameeny Poor | Software Developer & Programmer
+{% endblock %}
+
+{% block meta_description %}
+Official personal website of Said Hassan Ameeny Poor, Software Developer and Programmer. Explore software projects, websites, technical articles, videos and Telegram channels.
+{% endblock %}
 
 {% block content %}
 
 <section class="hero wrap">
 
-    <div class="eyebrow">
+    <div class="hero-profile">
 
-        <span class="pulse"></span>
+        <div class="hero-intro">
 
-        PERSONAL SPACE · DIGITAL WORK
+            <div class="eyebrow">
+                <span class="pulse"></span>
+                PERSONAL PORTFOLIO
+            </div>
+
+            <h1 class="hero-name">
+                SAID HASSAN<br>
+                <span>AMEENY POOR</span>
+            </h1>
+
+            <h2 class="professional-title">
+                Software Developer <span>&</span> Programmer
+            </h2>
+
+            <p class="hero-copy">
+                Welcome to my personal website.
+                I build software, develop digital platforms
+                and share my work, ideas and knowledge.
+            </p>
+
+        </div>
+
+        <div class="profile-photo-wrap">
+
+            <img
+                src="{% static 'images/said-profile.jpg' %}"
+                alt="Said Hassan Ameeny Poor - Software Developer and Programmer"
+                class="profile-photo"
+                width="220"
+                height="220"
+                fetchpriority="high"
+            >
+
+        </div>
 
     </div>
 
-    <h1>
-
-        SAID HASSAN
-
-        <br>
-
-        <span>AMEENY POOR</span>
-
-    </h1>
-
-    <p class="hero-copy">
-
-        Ideas, projects and things worth sharing.
-
-        <br>
-
-        Explore my articles, websites, videos
-        and Telegram channels.
-
-    </p>
-
-    
     <div class="hero-index">
 
         <span>01 / PORTFOLIO</span>
 
-        <span>INDEPENDENT · CREATIVE · DIGITAL</span>
+        <span>DEVELOPMENT · TECHNOLOGY · DIGITAL</span>
 
     </div>
 
 </section>
 
 
-<!-- ARTICLES -->
-
-<section class="content-section wrap"
-         id="articles">
+<section class="content-section wrap" id="articles">
 
     <div class="section-head">
 
         <div>
-
-            <div class="eyebrow">
-                01 — READ
-            </div>
-
-            <h2>
-                Articles<span>.</span>
-            </h2>
-
+            <div class="eyebrow">01 — READ</div>
+            <h2>Articles<span>.</span></h2>
         </div>
 
         <p>
@@ -77,23 +87,13 @@
 </section>
 
 
-<!-- WEBSITES -->
-
-<section class="content-section wrap"
-         id="websites">
+<section class="content-section wrap" id="websites">
 
     <div class="section-head">
 
         <div>
-
-            <div class="eyebrow">
-                02 — EXPLORE
-            </div>
-
-            <h2>
-                Websites<span>.</span>
-            </h2>
-
+            <div class="eyebrow">02 — EXPLORE</div>
+            <h2>Websites<span>.</span></h2>
         </div>
 
         <p>
@@ -109,23 +109,13 @@
 </section>
 
 
-<!-- VIDEOS -->
-
-<section class="content-section wrap"
-         id="videos">
+<section class="content-section wrap" id="videos">
 
     <div class="section-head">
 
         <div>
-
-            <div class="eyebrow">
-                03 — WATCH
-            </div>
-
-            <h2>
-                Videos<span>.</span>
-            </h2>
-
+            <div class="eyebrow">03 — WATCH</div>
+            <h2>Videos<span>.</span></h2>
         </div>
 
         <p>
@@ -141,23 +131,13 @@
 </section>
 
 
-<!-- TELEGRAM -->
-
-<section class="content-section wrap"
-         id="telegram">
+<section class="content-section wrap" id="telegram">
 
     <div class="section-head">
 
         <div>
-
-            <div class="eyebrow">
-                04 — JOIN
-            </div>
-
-            <h2>
-                Telegram Channels<span>.</span>
-            </h2>
-
+            <div class="eyebrow">04 — JOIN</div>
+            <h2>Telegram Channels<span>.</span></h2>
         </div>
 
         <p>
@@ -173,8 +153,6 @@
 </section>
 
 
-<!-- CONTACT -->
-
 <section class="contact-band wrap">
 
     <div>
@@ -183,9 +161,7 @@
             HAVE A PROJECT IN MIND?
         </div>
 
-        <h2>
-            Let’s connect<span>.</span>
-        </h2>
+        <h2>Let's connect<span>.</span></h2>
 
     </div>
 
@@ -197,5 +173,34 @@
     </a>
 
 </section>
+
+{% endblock %}
+
+
+{% block structured_data %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://saidhassanameenypoor.onrender.com/#person",
+  "name": "Said Hassan Ameeny Poor",
+  "url": "https://saidhassanameenypoor.onrender.com/",
+  "image": "https://saidhassanameenypoor.onrender.com/static/images/said-profile.jpg",
+  "jobTitle": [
+    "Software Developer",
+    "Programmer"
+  ],
+  "description": "Software Developer and Programmer interested in software development, web applications and technology.",
+  "knowsAbout": [
+    "Software Development",
+    "Python",
+    "Django",
+    "Web Development",
+    "MQL5",
+    "Programming"
+  ]
+}
+</script>
 
 {% endblock %}
