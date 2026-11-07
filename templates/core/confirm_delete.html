@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="form-wrap wrap">
+
+    <div class="eyebrow">
+        CONFIRM ACTION
+    </div>
+
+    <h1>
+        Delete link<span>.</span>
+    </h1>
+
+    <p class="muted">
+
+        Are you sure you want to delete
+        "{{ item.title }}"?
+
+    </p>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <div class="form-actions">
+
+            <button class="primary-btn danger-button"
+                    type="submit">
+
+                Yes, delete
+
+            </button>
+
+            <a class="outline-btn"
+               href="/admin/">
+
+                Cancel
+
+            </a>
+
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}
