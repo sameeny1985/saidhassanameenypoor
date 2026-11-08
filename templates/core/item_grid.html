@@ -1,0 +1,65 @@
+<div class="card-grid">
+
+    {% for item in items %}
+
+        <article class="work-card">
+
+            {% if item.display_image %}
+
+                <a class="card-image"
+                   href="{{ item.url }}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <img
+                        src="{{ item.display_image }}"
+                        alt="{{ item.title }}"
+                        loading="lazy"
+                        onerror="this.style.display='none'; this.parentElement.classList.add('card-placeholder');"
+                    >
+
+                </a>
+
+            {% else %}
+
+                <div class="card-image card-placeholder">
+                    <span>SA<span class="accent">.</span></span>
+                </div>
+
+            {% endif %}
+
+            <div class="card-body">
+
+                <div class="card-meta">
+                    <span>FEATURED</span>
+                    <span>↗</span>
+                </div>
+
+                <h3>{{ item.title }}</h3>
+
+                {% if item.description %}
+                    <p>{{ item.description|truncatewords:18 }}</p>
+                {% endif %}
+
+                <a
+                    class="text-link"
+                    href="{{ item.url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit link <span>↗</span>
+                </a>
+
+            </div>
+
+        </article>
+
+    {% empty %}
+
+        <div class="empty-state">
+            {{ empty }}
+        </div>
+
+    {% endfor %}
+
+</div>
