@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero wrap">
+
+    <div class="hero-inner">
+
+        <div class="hero-text">
+            <div class="eyebrow">
+                <span class="pulse"></span>
+                PERSONAL SPACE · DIGITAL WORK
+            </div>
+
+            <h1 class="hero-name">
+                Said hassan
+                <span>AMEENY POOR</span>
+            </h1>
+
+            <p class="hero-role">
+                Developer · Programmer · Builder of Websites &amp; Mobile Applications
+            </p>
+
+            <p class="hero-copy">
+                Ideas, projects and things worth sharing.
+                Explore my articles, websites, videos,
+                YouTube channels and Telegram channels.
+            </p>
+        </div>
+
+        <div class="hero-photo">
+            <div class="photo-ring">
+                <img
+                    src="{% static 'images/profile.jpg' %}"
+                    alt="Said hassan AMEENY POOR"
+                    width="220"
+                    height="220"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');"
+                >
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hero-index">
+        <span>01 / PORTFOLIO</span>
+        <span>INDEPENDENT · CREATIVE · DIGITAL</span>
+    </div>
+
+</section>
+
+
+<!-- ARTICLES -->
+<section class="content-section wrap" id="articles">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">01 — READ</div>
+            <h2>Articles<span>.</span></h2>
+        </div>
+        <p>Thoughts, guides and ideas<br>collected in one place.</p>
+    </div>
+    {% include "core/item_grid.html" with items=groups.article empty="Articles will appear here soon." %}
+</section>
+
+
+<!-- WEBSITES -->
+<section class="content-section wrap" id="websites">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">02 — EXPLORE</div>
+            <h2>Websites<span>.</span></h2>
+        </div>
+        <p>Digital products, platforms<br>and websites I have built.</p>
+    </div>
+    {% include "core/item_grid.html" with items=groups.website empty="Websites will appear here soon." %}
+</section>
+
+
+<!-- VIDEOS -->
+<section class="content-section wrap" id="videos">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">03 — WATCH</div>
+            <h2>Videos<span>.</span></h2>
+        </div>
+        <p>Video content to watch<br>and discover.</p>
+    </div>
+    {% include "core/item_grid.html" with items=groups.video empty="Videos will appear here soon." %}
+</section>
+
+
+<!-- YOUTUBE CHANNELS -->
+<section class="content-section wrap" id="youtube">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">04 — YOUTUBE</div>
+            <h2>YouTube Channels<span>.</span></h2>
+        </div>
+        <p>Channels and creators<br>worth following.</p>
+    </div>
+    {% include "core/item_grid.html" with items=groups.youtube empty="YouTube channels will appear here soon." %}
+</section>
+
+
+<!-- TELEGRAM -->
+<section class="content-section wrap" id="telegram">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">05 — JOIN</div>
+            <h2>Telegram Channels<span>.</span></h2>
+        </div>
+        <p>Channels, communities<br>and updates on Telegram.</p>
+    </div>
+    {% include "core/item_grid.html" with items=groups.telegram empty="Telegram channels will appear here soon." %}
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact-band wrap">
+    <div>
+        <div class="eyebrow">HAVE A PROJECT IN MIND?</div>
+        <h2>Let’s connect<span>.</span></h2>
+        <p class="contact-email">Shapyaarco@gmail.com</p>
+    </div>
+    <a class="primary-btn" href="mailto:Shapyaarco@gmail.com">
+        Get in touch ↗
+    </a>
+</section>
+
+{% endblock %}
