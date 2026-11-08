@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ heading }} — Said hassan AMEENY POOR
+{% endblock %}
+
+{% block content %}
+
+<section class="form-wrap wrap">
+
+    <a class="back-link" href="/admin/">
+        ← Back to content manager
+    </a>
+
+    <div class="eyebrow">CONTENT MANAGEMENT</div>
+
+    <h1>{{ heading }}<span>.</span></h1>
+
+    <form method="post"
+          class="editor-form"
+          enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="form-errors">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        {% for field in form %}
+            {% if field.name == "clear_logo" %}
+                {# rendered inside the logo row below #}
+            {% else %}
+            <div class="form-row">
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                    {% if field.name == "logo" %}
+                        <span class="optional">(optional — JPG / PNG / WEBP)</span>
+                    {% endif %}
+                </label>
+
+                {{ field }}
+
+                {% if field.help_text %}
+                    <small>{{ field.help_text }}</small>
+                {% endif %}
+
+                {% if field.name == "logo" and form.instance.logo %}
+                    <div class="current-logo">
+                        <img src="{{ form.instance.logo.url }}" alt="Current logo" height="48">
+                        <div class="logo-actions">
+                            <span class="logo-label">لوگوی فعلی</span>
+                            <label class="remove-logo-btn" for="{{ form.clear_logo.id_for_label }}">
+                                {{ form.clear_logo }}
+                                <span>حذف لوگو</span>
+                            </label>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% for error in field.errors %}
+                    <small class="error">{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        <div class="form-actions">
+            <button class="primary-btn" type="submit">
+                Save link ↗
+            </button>
+            <a class="outline-btn" href="/admin/">
+                Cancel
+            </a>
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}
